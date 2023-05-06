@@ -1,21 +1,21 @@
 const products = [
   {
-    name: 'CAMISETA MANOWAR',
+    name: 'CAMISETA VOLBEAT',
     price: 20,
     stars: 4,
     reviews: 2,
     seller: 'Arkana',
     image:
-      'https://srv.latostadora.com/image/manowar_logo_classic--id:85568e14-2ba5-4a4b-b728-cb8715937843;s:H_A1;b:f2f2f2;w:520;f:f;i:1356232387139135623201709261.jpg',
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dwb5025a4c/images/5/0/8/0/508086wa.jpg?sfrm=png',
   },
   {
-    name: 'CAMISETA MAIDEN',
+    name: 'CAMISETA GHOST',
     price: 30,
     stars: 2,
     reviews: 30,
     seller: 'Arkana',
     image:
-      'https://wishiny.com/sites/default/files/heavy-metal-iron-maiden-tshirt-youth.jpg',
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dw6ad69033/images/5/5/1/3/551305wa.jpg?sfrm=png',
   },
   {
     name: 'CAMISETA ACDC',
@@ -23,51 +23,53 @@ const products = [
     stars: 3,
     reviews: 40,
     seller: 'Arkana',
-    image: 'https://i.ebayimg.com/images/g/4Y4AAOSw6HJZyUaI/s-l500.jpg',
+    image:
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dwfc245659/images/3/8/8/9/388944wa.jpg?sfrm=png',
   },
   {
-    name: 'CAMISETA SHAKIRA',
+    name: 'CAMISETA QUEEN',
     price: 30,
     stars: 4,
     reviews: 50,
     seller: '3FLORES',
     image:
-      'https://assets.printerval.com/2023/02/25/63f97ede75f3f6.98989631.jpg',
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dwf3c76927/images/3/9/4/5/394536wa.jpg?sfrm=png',
   },
   {
-    name: 'CAMISETA DUALIPA',
+    name: 'CAMISETA LINKIN PARK',
     price: 20,
     stars: 4,
     reviews: 2,
     seller: '3FLORES',
     image:
-      'https://i.etsystatic.com/33950417/r/il/711799/3893165950/il_2000xN.3893165950_jzzn.jpg',
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dwab11aec9/images/5/4/9/5/549530wa.jpg?sfrm=png',
   },
   {
-    name: 'CAMISETA AVATAR',
+    name: 'CAMISETA DISTURBED',
     price: 30,
     stars: 5,
     reviews: 2,
     seller: 'Arkana',
-    image: 'https://m.media-amazon.com/images/I/51EdGEpBK2L._AC_UX342_.jpg',
+    image:
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dwfeec6cb9/images/4/8/2/2/482259wa.jpg?sfrm=png',
   },
   {
-    name: 'CAMISETA AEROSMITH',
+    name: 'CAMISETA NIRVANA',
     price: 20,
     stars: 4,
     reviews: 2,
     seller: 'Arkana',
     image:
-      'https://made4rock.com/65-large_default/camiseta-mujer-aerosmith.jpg',
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dwfa3e1c8b/images/3/6/5/2/365218wa-emp.jpg?sfrm=png',
   },
   {
-    name: 'CAMISETA BRUNO MARS',
+    name: 'CAMISETA METALLICA',
     price: 30,
     stars: 4,
     reviews: 12,
     seller: '3FLORES',
     image:
-      'https://srv.latostadora.com/image/bruno_mars--id:e75b5bee-2dd5-4dd3-a140-3bbe4b3c4bd6;s:H_A5;b:f2f2f2;w:520;f:f;i:135623513761135623201709265.jpg',
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dwf6bbaf67/images/5/5/1/9/551914wa.jpg?sfrm=png',
   },
   {
     name: 'CAMISETA BLIND GUARDIAN',
@@ -76,24 +78,26 @@ const products = [
     reviews: 2,
     seller: 'Arkana',
     image:
-      'https://custom13.com/17727-large_default/camiseta-negra-blind-guardian.jpg',
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dw83eb9ed8/images/3/8/2/7/382709wa.jpg?sfrm=png',
   },
   {
-    name: 'CAMISETA MICHAEL JACKSON',
+    name: 'CAMISETA RAMMSTEIN',
     price: 20,
     stars: 1,
     reviews: 29,
     seller: '3FLORES',
     image:
-      'https://micreacion.es/252-large_default/camiseta-michael-jackson.webp',
+      'https://www.emp-online.es/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dw3282e4d6/images/5/2/1/2/521273wa.jpg?sfrm=png',
   },
 ];
 
-const productList = document.createElement('div');
-
 for (let i = 0; products.length; i++) {
   const productListing = products[i];
+  const sectionSearchTshirt = document.querySelector('.tshirt_search_list');
   const imageList = document.createElement('img');
-  imageList.src = products.image;
-  imageList.alt = name.title;
+  imageList.classList.add('tshirt_photos');
+  imageList.src = productListing.image;
+  imageList.alt = productListing.name;
+  sectionSearchTshirt.appendChild(imageList);
+  document.body.appendChild(sectionSearchTshirt);
 }

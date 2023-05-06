@@ -5,24 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>ADOPTA UNA CAMISETA</title>
+    <title>Mcero Saterato // Camisetas Heavys para gente como tú</title>
   </head>
   <body>
     <header>
       <img
+        class="line_up"
         src="./images/Captura de pantalla 2023-05-06 124012.jpg"
         alt="logo_principal"
       />
+      <img
+        class="buy_logo"
+        src="./images/carritocompra.png"
+        alt="logo_carrito_compra"
+      />
     </header>
-    <input type="search" value="INTRODUCE TU BUSQUEDA" />
-    <img src="./images/carritocompra.png" alt="logo_carrito_compra" />
-    <section>FILTROS DE BUSQUEDA</section>
-    <!-- El código HTML está correctamente estructurado. Hay dos elementos section o article principales que representan los filtros
-de búsqueda (a la izquierda en escritorio, arriba del contenido en móvil), y los elementos a vender en la tienda (a la derecha en
-escritorio, abajo de los filtros en móvil). -->
-    <section>ELEMENTOS A VENDER EN LA TIENDA</section>
-    <!-- Los elementos a vender en la tienda comparten la misma clase de CSS, que define una carta de producto y tiene algún efecto
-    :hover cuando pasa el ratón sobre ellas. -->
+    <div class="search_in_site">
+      <img
+        class="search_logo"
+        src="./images/lupa_simbolo.png"
+        alt="logo_lupa"
+      />
+      <input class="line_up" type="search" value="INTRODUCE TU BUSQUEDA" />
+    </div>
+    <section class="filtros_busqueda">FILTROS DE BUSQUEDA</section>
+    <section class="tshirt_search_list"></section>
     <script src="./main.js"></script>
   </body>
 </html>

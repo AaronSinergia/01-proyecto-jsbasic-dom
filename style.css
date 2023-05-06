@@ -1,2 +1,66 @@
+* {
+  background-color: var(--corporative-background-color);
+  color: var(--title-and-buttontext-color);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  padding: 0;
+}
+
+:root {
+  --corporative-background-color: rgb(255, 255, 255);
+  --title-and-buttontext-color: rgb(3, 3, 3);
+  --border_radius_red: rgba(17, 16, 16, 0.164);
+}
+
+header > img {
+  display: flex;
+  width: 70%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.buy_logo {
+  display: flex;
+  position: absolute;
+  width: 5vh;
+  left: 87%;
+  transform: translate(-13%);
+  top: 5px;
+  cursor: pointer;
+}
+
+.search_in_site {
+  display: grid;
+  grid-template-columns: 10% 90%;
+}
+
+input {
+  display: flex;
+  height: 3vh;
+  text-align: center;
+}
+
+div > .search_logo {
+  display: flex;
+  width: 60%;
+  position: relative;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.filtros_busqueda {
+  border: 3px solid var(--border_radius_red);
+  margin-top: 1vh;
+}
+
+.tshirt_photos {
+  width: 20%;
+  height: 20% auto;
+}
+
 /* La web cuenta con media queries para escritorio y móvil. Así como una correcta estructura y posicionamiento de elementos
 por medio de flex o grid . */
