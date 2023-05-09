@@ -92,9 +92,10 @@ const products = [
 ];
 
 // BOX SELLER
-const producSpecificationList = document.querySelector(
+const productSpecificationList = document.querySelector(
   'section.filtros_busqueda'
 );
+
 const sellerBox = document.createElement('select');
 sellerBox.className = 'sellers';
 
@@ -104,41 +105,99 @@ sellerNameDisabledBox.disabled = true;
 sellerNameDisabledBox.textContent = 'Marca';
 sellerBox.appendChild(sellerNameDisabledBox);
 
+// BOX BUTTON "BUSCAR"
+const sectionElement = document.querySelector('section');
+const searchButton = document.createElement('button');
+searchButton.textContent = 'Buscar';
+searchButton.className = 'search_button';
+sectionElement.appendChild(searchButton);
+document.body.appendChild(sectionElement);
+
+/// Seleccionar elemento según Seller
+sellerBox.addEventListener('change', function () {
+  const selectedSeller = sellerBox.value;
+  const sellerFilter = products.filter(
+    (product) => product.seller === selectedSeller
+  );
+  showFilteredProducts(sellerFilter);
+});
+
+function showFilteredProducts(filteredProducts) {
+  const productsContainers = document.querySelectorAll('.tshirt_search_list');
+  productsContainers.forEach((container) => {
+    container.innerHTML = '';
+
+    filteredProducts.forEach((product) => {
+      const productDiv = document.createElement('div');
+      productDiv.className = 'tshirt_photos_seller';
+      const image = document.createElement('img');
+      image.src = product.image;
+      image.alt = product.name;
+      productDiv.appendChild(image);
+      container.appendChild(productDiv);
+    });
+  });
+}
+
 for (let i = 6; i < products.length; i++) {
   const sellersList = products[i];
   const sellerBoxDropdown = document.createElement('option');
-  sellerBoxDropdown.value = 'Seller';
+  sellerBoxDropdown.value = sellersList.seller;
   sellerBoxDropdown.textContent = sellersList.seller;
-  producSpecificationList.appendChild(sellerBox);
   sellerBox.appendChild(sellerBoxDropdown);
-  document.body.appendChild(producSpecificationList);
 }
 
+productSpecificationList.appendChild(sellerBox);
+document.body.appendChild(productSpecificationList);
+
 // BOX PRICE
-const priceBox = document.createElement('select');
+const priceBox = document.createElement('input');
 priceBox.className = 'price';
+priceBox.setAttribute('type', 'text');
+priceBox.setAttribute('placeholder', 'Precio');
 
-const priceDisabledBox = document.createElement('option');
-priceDisabledBox.defaultSelected = true;
-priceDisabledBox.disabled = true;
-priceDisabledBox.textContent = 'Precio';
-priceBox.appendChild(priceDisabledBox);
+// Seleccionar elemento según Price
+priceBox.addEventListener('change', function () {
+  const selectedPrice = priceBox.value;
+  const priceFilter = products.filter(
+    (product_two) => Number(product_two.price) === Number(selectedPrice)
+  );
+  showFilteredProducts(priceFilter);
+});
 
+function showFilteredProducts(filteredProducts) {
+  const productsContainers = document.querySelectorAll('.tshirt_search_list');
+  productsContainers.forEach((container) => {
+    container.innerHTML = '';
+
+    filteredProducts.forEach((product_two) => {
+      const productDiv_two = document.createElement('div');
+      productDiv_two.className = 'tshirt_photos_price';
+      const image_two = document.createElement('img');
+      image_two.src = product_two.image;
+      image_two.alt = product_two.name;
+      productDiv_two.appendChild(image_two);
+      container.appendChild(productDiv_two);
+    });
+  });
+}
+
+// Seleccionar elemento según Price fin
 for (let i = 6; i < products.length; i++) {
   const priceList = products[i];
   const priceBoxDropdown = document.createElement('option');
-  priceBoxDropdown.value = 'Price';
+  priceBoxDropdown.value = priceList.price;
   priceBoxDropdown.textContent = priceList.price;
-  producSpecificationList.appendChild(priceBox);
+  productSpecificationList.appendChild(priceBox);
   priceBox.appendChild(priceBoxDropdown);
-  document.body.appendChild(producSpecificationList);
+  document.body.appendChild(productSpecificationList);
 }
 
 // PHOTO T-SHIRTS STOCK
 for (let i = 0; i < products.length; i++) {
-  const productListing = products[i];
-  const sectionSearchTshirt = document.querySelector('.tshirt_search_list');
-  const imageList = document.createElement('img');
+  let productListing = products[i];
+  let sectionSearchTshirt = document.querySelector('.tshirt_search_list');
+  let imageList = document.createElement('img');
   imageList.classList.add('tshirt_photos');
   imageList.src = productListing.image;
   imageList.alt = productListing.name;
