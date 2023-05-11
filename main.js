@@ -91,6 +91,28 @@ const products = [
   },
 ];
 
+let intervalID;
+
+// BOX BUTTON "BUSCAR"
+const sectionElement = document.querySelector('section');
+const searchButton = document.createElement('button');
+searchButton.textContent = 'Buscar';
+searchButton.className = 'search_button';
+sectionElement.appendChild(searchButton);
+document.body.appendChild(sectionElement);
+
+// BOX BUTTON "RESET"
+const resetButton = document.createElement('button');
+resetButton.textContent = 'RESETEAR';
+resetButton.className = 'reset_button';
+sectionElement.appendChild(resetButton);
+document.body.appendChild(sectionElement);
+const handleReset = (event) => {
+  showFilteredProductsBySeller(products);
+  showFilteredProductsByPrice(products);
+};
+resetButton.addEventListener('click', handleReset);
+
 // BOX SELLER
 const productSpecificationList = document.querySelector(
   'section.filtros_busqueda'
@@ -105,24 +127,16 @@ sellerNameDisabledBox.disabled = true;
 sellerNameDisabledBox.textContent = 'Marca';
 sellerBox.appendChild(sellerNameDisabledBox);
 
-// BOX BUTTON "BUSCAR"
-const sectionElement = document.querySelector('section');
-const searchButton = document.createElement('button');
-searchButton.textContent = 'Buscar';
-searchButton.className = 'search_button';
-sectionElement.appendChild(searchButton);
-document.body.appendChild(sectionElement);
-
 /// Seleccionar elemento según Seller
 sellerBox.addEventListener('change', function () {
   const selectedSeller = sellerBox.value;
   const sellerFilter = products.filter(
     (product) => product.seller === selectedSeller
   );
-  showFilteredProducts(sellerFilter);
+  showFilteredProductsBySeller(sellerFilter);
 });
 
-function showFilteredProducts(filteredProducts) {
+function showFilteredProductsBySeller(filteredProducts) {
   const productsContainers = document.querySelectorAll('.tshirt_search_list');
   productsContainers.forEach((container) => {
     container.innerHTML = '';
@@ -154,7 +168,7 @@ document.body.appendChild(productSpecificationList);
 const priceBox = document.createElement('input');
 priceBox.className = 'price';
 priceBox.setAttribute('type', 'text');
-priceBox.setAttribute('placeholder', 'Precio');
+priceBox.setAttribute('placeholder', 'Precio €');
 
 // Seleccionar elemento según Price
 priceBox.addEventListener('change', function () {
@@ -162,15 +176,15 @@ priceBox.addEventListener('change', function () {
   const priceFilter = products.filter(
     (product_two) => Number(product_two.price) === Number(selectedPrice)
   );
-  showFilteredProducts(priceFilter);
+  showFilteredProductsByPrice(priceFilter);
 });
 
-function showFilteredProducts(filteredProducts) {
-  const productsContainers = document.querySelectorAll('.tshirt_search_list');
-  productsContainers.forEach((container) => {
+function showFilteredProductsByPrice(filteredProductsS) {
+  const productsContainersS = document.querySelectorAll('.tshirt_search_list');
+  productsContainersS.forEach((container) => {
     container.innerHTML = '';
 
-    filteredProducts.forEach((product_two) => {
+    filteredProductsS.forEach((product_two) => {
       const productDiv_two = document.createElement('div');
       productDiv_two.className = 'tshirt_photos_price';
       const image_two = document.createElement('img');
@@ -181,8 +195,8 @@ function showFilteredProducts(filteredProducts) {
     });
   });
 }
-
 // Seleccionar elemento según Price fin
+
 for (let i = 6; i < products.length; i++) {
   const priceList = products[i];
   const priceBoxDropdown = document.createElement('option');
