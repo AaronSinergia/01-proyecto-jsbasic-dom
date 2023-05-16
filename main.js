@@ -94,7 +94,7 @@ const products = [
 let intervalID;
 
 // BOX BUTTON "BUSCAR"
-const sectionElement = document.querySelector('section');
+const sectionElement = document.querySelector('.filtros_busqueda');
 const searchButton = document.createElement('button');
 searchButton.textContent = 'Buscar';
 searchButton.className = 'search_button';
@@ -102,6 +102,7 @@ sectionElement.appendChild(searchButton);
 document.body.appendChild(sectionElement);
 
 // BOX BUTTON "RESET"
+const sectionElements = document.querySelector('.filtros_busqueda');
 const resetButton = document.createElement('button');
 resetButton.textContent = 'RESETEAR';
 resetButton.className = 'reset_button';
