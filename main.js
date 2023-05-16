@@ -109,11 +109,12 @@ sectionElement.appendChild(resetButton);
 document.body.appendChild(sectionElement);
 const handleReset = (event) => {
   showFilteredProductsBySeller(products);
+  image.classList.add('tshirt_photos');
   showFilteredProductsByPrice(products);
 };
 resetButton.addEventListener('click', handleReset);
 
-// BOX SELLER
+// BOX SELLER  section > .filtros_busqueda > select > option
 const productSpecificationList = document.querySelector(
   'section.filtros_busqueda'
 );
@@ -143,8 +144,9 @@ function showFilteredProductsBySeller(filteredProducts) {
 
     filteredProducts.forEach((product) => {
       const productDiv = document.createElement('div');
-      productDiv.className = 'tshirt_photos_seller';
+      productDiv.className = 'tshirt_photos_list_hover';
       const image = document.createElement('img');
+      image.classList.add('tshirt_photos');
       image.src = product.image;
       image.alt = product.name;
       productDiv.appendChild(image);
@@ -186,8 +188,9 @@ function showFilteredProductsByPrice(filteredProductsS) {
 
     filteredProductsS.forEach((product_two) => {
       const productDiv_two = document.createElement('div');
-      productDiv_two.className = 'tshirt_photos_price';
+      productDiv_two.className = 'tshirt_photos_list_hover';
       const image_two = document.createElement('img');
+      image_two.classList.add('tshirt_photos');
       image_two.src = product_two.image;
       image_two.alt = product_two.name;
       productDiv_two.appendChild(image_two);
@@ -201,20 +204,22 @@ for (let i = 6; i < products.length; i++) {
   const priceList = products[i];
   const priceBoxDropdown = document.createElement('option');
   priceBoxDropdown.value = priceList.price;
-  priceBoxDropdown.textContent = priceList.price;
   productSpecificationList.appendChild(priceBox);
-  priceBox.appendChild(priceBoxDropdown);
+  // priceBox.appendChild(priceBoxDropdown); /// revisar si es preciso esto
   document.body.appendChild(productSpecificationList);
 }
 
-// PHOTO T-SHIRTS STOCK
+// PHOTO T-SHIRTS STOCK section > .tshirt_search_list > img > .tshirt_photos
 for (let i = 0; i < products.length; i++) {
-  let productListing = products[i];
-  let sectionSearchTshirt = document.querySelector('.tshirt_search_list');
-  let imageList = document.createElement('img');
+  const productListing = products[i];
+  const productDivImage = document.createElement('div');
+  productDivImage.classList.add('tshirt_photos_list_hover');
+  const sectionSearchTshirt = document.querySelector('.tshirt_search_list');
+  const imageList = document.createElement('img');
   imageList.classList.add('tshirt_photos');
   imageList.src = productListing.image;
   imageList.alt = productListing.name;
-  sectionSearchTshirt.appendChild(imageList);
+  productDivImage.appendChild(imageList);
+  sectionSearchTshirt.appendChild(productDivImage);
   document.body.appendChild(sectionSearchTshirt);
 }
